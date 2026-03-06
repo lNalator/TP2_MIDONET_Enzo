@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const app = express();
 const port = 3000;
 
-const users = require("./routes/users");
+const users = require("./src/routes/users");
 
 const corsOptions = {
   origin: "*", // Remplacez par l'origine de votre frontend

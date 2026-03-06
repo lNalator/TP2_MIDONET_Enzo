@@ -21,13 +21,11 @@ function create(req, res) {
       .send({ success: false, message: "Name and email are required" });
   }
   const newUser = userModel.create({ name, email, role });
-  res
-    .status(201)
-    .send({
-      success: true,
-      message: "User created successfully",
-      data: newUser,
-    });
+  res.status(201).send({
+    success: true,
+    message: "User created successfully",
+    data: newUser,
+  });
 }
 
 function update(req, res) {
@@ -37,13 +35,11 @@ function update(req, res) {
   if (!updatedUser) {
     return res.status(404).send({ success: false, message: "User not found" });
   }
-  res
-    .status(200)
-    .send({
-      success: true,
-      message: "User updated successfully",
-      data: updatedUser,
-    });
+  res.status(200).send({
+    success: true,
+    message: "User updated successfully",
+    data: updatedUser,
+  });
 }
 
 function remove(req, res) {
