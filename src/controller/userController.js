@@ -1,54 +1,56 @@
-const userModel = require("../model/userModel");
+const UserService = require("../service/userService");
 
-function getAll(req, res) {
-  const users = userModel.getAll();
-  res.status(200).send({ success: true, count: users.length, data: users });
+async function getAll(req, res, next) {
+  try {
+    const role = req.query.role;
+    const { statusCode, message } = await UserService.getAll(role);
+    res.status(statusCode).send(message);
+  } catch (error) {
+    next(error);
+  }
 }
 
-function getById(req, res) {
-  const user = userModel.getById(parseInt(req.params.id));
-  if (!user) {
-    return res.status(404).send({ success: false, message: "User not found" });
+async function getById(req, res, next) {
+  try {
+    const { statusCode, message } = await UserService.getById(req.params.id);
+    res.status(statusCode).send(message);
+  } catch (error) {
+    next(error);
   }
-  res.status(200).send({ success: true, data: user });
 }
 
-function create(req, res) {
-  const { name, email, role } = req.body;
-  if (!name || !email) {
-    return res
-      .status(400)
-      .send({ success: false, message: "Name and email are required" });
+async function create(req, res, next) {
+  try {
+    const { name, email, role } = req.body;
+    const { statusCode, message } = await UserService.create({
+      name,
+      email,
+      role,
+    });
+    res.status(statusCode).send(message);
+  } catch (error) {
+    next(error);
   }
-  const newUser = userModel.create({ name, email, role });
-  res.status(201).send({
-    success: true,
-    message: "User created successfully",
-    data: newUser,
-  });
 }
 
-function update(req, res) {
-  const id = parseInt(req.params.id);
-  const { name, email, role } = req.body;
-  const updatedUser = userModel.update(id, { name, email, role });
-  if (!updatedUser) {
-    return res.status(404).send({ success: false, message: "User not found" });
+async function update(req, res, next) {
+  try {
+    const id = req.params.id;
+    const { statusCode, message } = await UserService.update(id, req.body);
+    res.status(statusCode).send(message);
+  } catch (error) {
+    next(error);
   }
-  res.status(200).send({
-    success: true,
-    message: "User updated successfully",
-    data: updatedUser,
-  });
 }
 
-function remove(req, res) {
-  const id = parseInt(req.params.id);
-  const success = userModel.remove(id);
-  if (!success) {
-    return res.status(404).send({ success: false, message: "User not found" });
+async function remove(req, res, next) {
+  try {
+    const id = req.params.id;
+    const { statusCode, message } = await UserService.remove(id);
+    res.status(statusCode).send(message);
+  } catch (error) {
+    next(error);
   }
-  res.status(200).send({ success: true, message: "User deleted successfully" });
 }
 
 module.exports = {

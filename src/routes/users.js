@@ -4,22 +4,22 @@ const controller = require("../controller/userController");
 
 router
   .route("/")
-  .get((req, res) => {
-    controller.getAll(req, res);
+  .get((req, res, next) => {
+    controller.getAll(req, res, next);
   })
-  .post((req, res) => {
-    controller.create(req, res);
+  .post((req, res, next) => {
+    controller.create(req, res, next);
   });
 router
   .route("/:id")
-  .get((req, res) => {
-    controller.getById(req, res);
+  .get((req, res, next) => {
+    controller.getById(req, res, next);
   })
-  .put((req, res) => {
-    controller.update(req, res);
+  .put((req, res, next) => {
+    controller.update(req, res, next);
   })
-  .delete((req, res) => {
-    controller.remove(req, res);
+  .delete((req, res, next) => {
+    controller.remove(req, res, next);
   });
 
 module.exports = router;

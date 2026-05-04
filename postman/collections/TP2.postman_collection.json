@@ -15,12 +15,12 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/api/users",
+          "raw": "http://localhost:3001/api/users",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "3000",
+          "port": "3001",
           "path": [
             "api",
             "users"
@@ -48,16 +48,16 @@
           }
         },
         "url": {
-          "raw": "http://localhost:3000/api/users/4",
+          "raw": "http://localhost:3001/api/users/69aab67d66593588a45d0fd7",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "3000",
+          "port": "3001",
           "path": [
             "api",
             "users",
-            "4"
+            "69aab67d66593588a45d0fd7"
           ]
         }
       },
@@ -73,16 +73,16 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/api/users/4",
+          "raw": "http://localhost:3001/api/users/69aab67d66593588a45d0fd7",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "3000",
+          "port": "3001",
           "path": [
             "api",
             "users",
-            "4"
+            "69aab67d66593588a45d0fd7"
           ]
         }
       },
@@ -107,12 +107,12 @@
           }
         },
         "url": {
-          "raw": "http://localhost:3000/api/users",
+          "raw": "http://localhost:3001/api/users",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "3000",
+          "port": "3001",
           "path": [
             "api",
             "users"
@@ -140,16 +140,16 @@
           }
         },
         "url": {
-          "raw": "http://localhost:3000/api/users/4",
+          "raw": "http://localhost:3001/api/users/69aab67d66593588a45d0fd7",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "3000",
+          "port": "3001",
           "path": [
             "api",
             "users",
-            "4"
+            "69aab67d66593588a45d0fd7"
           ]
         }
       },
